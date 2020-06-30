@@ -26,7 +26,7 @@ $linkWrap.set.tag.wrapper = 'div';
 
 linkWrap.init();
 
-test('navigate down from div', done => {
+test('navigate down (custom settings)', done => {
     document.getElementById('divUp').click();
 
     setTimeout(() => {
@@ -36,7 +36,7 @@ test('navigate down from div', done => {
 });
 
 
-test('navigate up from div', done => {
+test('navigate up (custom settings)', done => {
     document.getElementById('divDown').click();
 
     setTimeout(() => {

@@ -34,7 +34,7 @@ test('navigate down from p', done => {
 });
 
 
-test('navigate up from div', () => {
+test('navigate up from p', () => {
     document.getElementById('pDown').click();
 
     setTimeout(() => {
