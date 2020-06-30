@@ -22,6 +22,15 @@
         return `${tag}[${attr}]`;
     }
 
+    function getWrappers() {
+        const wrapped = document.querySelectorAll(getWrapped());
+        const wrappers = Array.from(wrapped)
+            .map(e => e.closest(getWrapper()))
+            .filter(e => !!e);
+
+        return wrappers;
+    }
+
     function linkWrap() {
         const settings = {
             attr: {
@@ -41,25 +50,35 @@
             const main = {
                 set(vals = settings) {
                     this.settings = vals;
+                    this.listenWrapped = {};
+                    this.listenWrapper = {};
                 },
                 init() {
-                    const wrapped = document.querySelectorAll(getWrapped());
-                    const containers = Array.from(wrapped)
-                        .map(e => e.closest(getWrapper()))
-                        .filter(e => !!e);
+                    const wrappers = getWrappers();
 
-                    containers.forEach(e => {
+                    wrappers.forEach((e, i) => {
                         const l = e.querySelector(getWrapped());
 
-                        l.addEventListener('click', event => {
-                            event.stopPropagation();
-                        });
+                        this.listenWrapped[i] = e => e.stopPropagation();
+                        this.listenWrapper[i] = () => l.click();
 
-                        e.addEventListener('click', event => {
-                            l.click();
-                        });
+                        l.addEventListener('click', this.listenWrapped[i]);
+                        e.addEventListener('click', this.listenWrapper[i]);
 
+                        e.style.__cursor = e.style.cursor;
                         e.style.cursor = l.style.cursor || this.settings.cursor;
+                    });
+                },
+                clear() {
+                    const wrappers = getWrappers();
+
+                    wrappers.forEach((e, i) => {
+                        const l = e.querySelector(getWrapped());
+
+                        e.removeEventListener('click', this.listenWrapper[i]);
+                        l.removeEventListener('click', this.listenWrapped);
+
+                        e.style.cursor = e.style.__cursor;
                     });
                 },
             };
