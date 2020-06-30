@@ -49,7 +49,7 @@
                         .filter(e => !!e);
 
                     containers.forEach(e => {
-                        let l = e.querySelector(getWrapped());
+                        const l = e.querySelector(getWrapped());
 
                         l.addEventListener('click', event => {
                             event.stopPropagation();
