@@ -2,7 +2,6 @@
 
 require('../index');
 
-const linkWrap = window.$linkWrap;
 
 document.body.innerHTML = `
     <div id="divUp" container>
@@ -24,7 +23,7 @@ $linkWrap.set.attr.wrapper = 'container';
 $linkWrap.set.tag.wrapped = 'a';
 $linkWrap.set.tag.wrapper = 'div';
 
-linkWrap.init();
+$linkWrap.init();
 
 test('navigate down (custom settings)', done => {
     document.getElementById('divUp').click();

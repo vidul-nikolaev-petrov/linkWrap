@@ -2,7 +2,6 @@
 
 require('../index');
 
-const linkWrap = window.$linkWrap;
 
 document.body.innerHTML = `
     <p id="anyUp" wrapper>
@@ -15,7 +14,7 @@ document.body.innerHTML = `
     </div>
 `;
 
-linkWrap.init();
+$linkWrap.init();
 
 test('navigate down from any wrapper', done => {
     document.getElementById('anyUp').click();

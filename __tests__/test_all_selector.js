@@ -2,7 +2,6 @@
 
 require('../index');
 
-const linkWrap = window.$linkWrap;
 
 document.body.innerHTML = `
     <div id="divUp" wrapper>
@@ -19,7 +18,7 @@ document.body.innerHTML = `
     </div>
 `;
 
-linkWrap.init();
+$linkWrap.init();
 
 test('navigate down from div', done => {
     document.getElementById('divUp').click();
