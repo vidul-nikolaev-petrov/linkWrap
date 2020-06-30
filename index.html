@@ -1,0 +1,97 @@
+<html>
+
+<head>
+    <style type="text/css">
+    * {
+        font-size: 110%;
+    }
+
+    a[href] {
+        text-decoration: none;
+        color: #3CD1CE;
+        background-color: #067390;
+        font-size: 120%;
+        padding: 8px;
+        border-radius: 8px;
+    }
+
+    a[href]:hover {
+        background-color: transparent;
+    }
+
+    div {
+        clear: both;
+        text-align: center;
+        height: 128px;
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 88px;
+        margin-top: 44px;
+        border-radius: 8px;
+    }
+
+    #divUp {
+        background-color: #DDFFCE;
+    }
+
+    #divDown {
+        background-color: #DDFFCE;
+    }
+
+    div#location {
+        position: absolute;
+        top: 10px;
+        height: 16px;
+        padding: 16px 0; 
+        margin: 0 auto;
+        margin-left: 10%;
+        color: #CDCDCD;
+    }
+
+    p {
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 33px;
+        padding-bottom: 33px;
+        margin-top: 44px;
+        background-color: #F6FFCE;
+        border-radius: 8px;
+    }
+    </style>
+    <script type="text/javascript" src="./main.js"></script>
+</head>
+
+<body>
+    <div id="location"></div>
+    <br>
+    <div w-rapper id="divUp">
+        <span>
+            <a name="up"></a>
+            <a href="#down" w-rapped>local link #down</a>
+        </span>
+    </div>
+    <p w-rapper>
+        <a href="http://google.com" w-rapped>link to google</a>
+    </p>
+    <div w-rapper id="divDown">
+        <span>
+            <a name="down"></a>
+            <a href="#up" w-rapped>local link #up</a>
+        </span>
+    </div>
+    <script type="text/javascript">
+        $linkWrap.set.attr.wrapped = 'w-rapped';
+        $linkWrap.set.attr.wrapper = 'w-rapper';
+        $linkWrap.init();
+    </script>
+    <script type="text/javascript">
+        const note = document.getElementById('location');
+
+        window.addEventListener('popstate', () => {
+            note.innerHTML = window.location.href;
+        });
+    </script>
+</body>
+
+</html>

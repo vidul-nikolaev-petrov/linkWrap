@@ -1,0 +1,33 @@
+{
+  "name": "linkWrap",
+  "description": "Make HTML wrapper tags clickable.",
+  "license": "MIT",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vidul-nikolaev-petrov/linkWrap"
+  },
+  "author": {
+    "email": "vidul.petrov@gmail.com",
+    "name": "Видул Петров"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.3.1",
+    "jest": "^26.1.0"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "main.js"
+    ],
+    "coverageDirectory": "coverage",
+    "testEnvironment": "jsdom"
+  },
+  "scripts": {
+    "lint": "eslint main.js __tests__/*js",
+    "test": "jest"
+  }
+}
