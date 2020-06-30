@@ -76,7 +76,7 @@
                         const l = e.querySelector(getWrapped());
 
                         e.removeEventListener('click', this.listenWrapper[i]);
-                        l.removeEventListener('click', this.listenWrapped);
+                        l.removeEventListener('click', this.listenWrapped[i]);
 
                         e.style.cursor = e.style.__cursor;
                     });
