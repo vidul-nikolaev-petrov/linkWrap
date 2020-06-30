@@ -11,7 +11,7 @@ The [demo](https://vidul-nikolaev-petrov.github.io/linkWrap/) represents `a` and
 
 ```javascript
 $linkWrap.set.attr.wrapped = 'w-rapped'; // defaults to 'wrapped'
-$linkWrap.set.attr.wrapper = 'w-rapper'; // defaults to 'wrapped'
+$linkWrap.set.attr.wrapper = 'w-rapper'; // defaults to 'wrapper'
 $linkWrap.set.tag.wrapped = 'a';         // defaults to 'a'
 $linkWrap.set.tag.wrapper = 'div';       // defaults to '*' (all tags)
 ```
@@ -21,9 +21,10 @@ More explanatory examples [here](https://github.com/vidul-nikolaev-petrov/linkWr
 
 ```javascript
 /**
- Initialize the global $linkWrap
+ Initialize window.$linkWrap
  at the bottom of HTML body
 */
+
 $linkWrap.init();
 ```
 
