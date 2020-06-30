@@ -6,7 +6,7 @@ Make HTML wrapper tags clickable.
 
 ## Demo
 
-> Coming soon.
+The [demo](https://vidul-nikolaev-petrov.github.io/linkWrap/) represents `a` and their respective clickable `div`, and `p` wrappers.
 
 ## License
 
