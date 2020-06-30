@@ -1,6 +1,6 @@
 'use strict';
 
-require('../main');
+require('../index');
 
 const linkWrap = window.$linkWrap;
 
