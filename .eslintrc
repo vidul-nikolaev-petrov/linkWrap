@@ -1,0 +1,13 @@
+{
+  "rules": {
+    "no-param-reassign": 0,
+    "class-methods-use-this": 0,
+    "no-misleading-character-class": 0,
+    "indent": ["error", 4],
+    "no-restricted-syntax": 0
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  }
+}
