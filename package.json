@@ -21,13 +21,13 @@
     "testURL": "http://localhost/",
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "main.js"
+      "index.js"
     ],
     "coverageDirectory": "coverage",
     "testEnvironment": "jsdom"
   },
   "scripts": {
-    "lint": "eslint main.js __tests__/*js",
+    "lint": "eslint index.js __tests__/*js",
     "test": "jest"
   }
 }
