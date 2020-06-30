@@ -18,6 +18,18 @@ $linkWrap.set.tag.wrapper = 'div';       // defaults to '*' (all tags)
 ```
 More explanatory examples [here](https://github.com/vidul-nikolaev-petrov/linkWrap/tree/master/__tests__).
 
+## Usage
+
+```javascript
+/**
+ Initialize the global $linkWrap
+ at the bottom of HTML body
+*/
+$linkWrap.init();
+```
+
+An example [here](https://github.com/vidul-nikolaev-petrov/linkWrap/blob/master/index.html#L86).
+
 ## License
 
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
