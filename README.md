@@ -21,11 +21,18 @@ More explanatory examples [here](https://github.com/vidul-nikolaev-petrov/linkWr
 
 ```javascript
 /**
- Initialize window.$linkWrap
- at the bottom of HTML body
+ Enable window.$linkWrap
 */
 
 $linkWrap.init();
+```
+
+```javascript
+/**
+ Disable window.$linkWrap
+*/
+
+$linkWrap.clear();
 ```
 
 An example [here](https://github.com/vidul-nikolaev-petrov/linkWrap/blob/master/index.html#L86).
