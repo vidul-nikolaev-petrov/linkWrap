@@ -83,9 +83,15 @@
     <script type="text/javascript">
         $linkWrap.set.attr.wrapped = 'w-rapped';
         $linkWrap.set.attr.wrapper = 'w-rapper';
+
+        /* enable $linkWrap */
         $linkWrap.init();
-    </script>
-    <script type="text/javascript">
+
+        /* disable $linkWrap in ten seconds */
+        setTimeout(() => {
+            $linkWrap.clear();
+        }, 10 * 1000);
+
         const note = document.getElementById('location');
 
         window.addEventListener('popstate', () => {
