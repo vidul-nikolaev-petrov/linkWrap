@@ -8,29 +8,6 @@
         window.$linkWrap = $linkWrap;
     }
 
-    function getWrapped() {
-        const tag = $linkWrap.settings.tag.wrapped;
-        const attr = $linkWrap.settings.attr.wrapped;
-
-        return `${tag}[${attr}]`;
-    }
-
-    function getWrapper() {
-        const tag = $linkWrap.settings.tag.wrapper;
-        const attr = $linkWrap.settings.attr.wrapper;
-
-        return `${tag}[${attr}]`;
-    }
-
-    function getWrappers() {
-        const wrapped = document.querySelectorAll(getWrapped());
-        const wrappers = Array.from(wrapped)
-            .map(e => e.closest(getWrapper()))
-            .filter(e => !!e);
-
-        return wrappers;
-    }
-
     function linkWrap() {
         const settings = {
             attr: {
@@ -54,10 +31,10 @@
                     this.listenWrapper = {};
                 },
                 init() {
-                    const wrappers = getWrappers();
+                    const wrappers = this.getWrappers();
 
                     wrappers.forEach((e, i) => {
-                        const l = e.querySelector(getWrapped());
+                        const l = e.querySelector(this.getWrapped());
 
                         this.listenWrapped[i] = e => e.stopPropagation();
                         this.listenWrapper[i] = () => l.click();
@@ -70,16 +47,36 @@
                     });
                 },
                 clear() {
-                    const wrappers = getWrappers();
+                    const wrappers = this.getWrappers();
 
                     wrappers.forEach((e, i) => {
-                        const l = e.querySelector(getWrapped());
+                        const l = e.querySelector(this.getWrapped());
 
                         e.removeEventListener('click', this.listenWrapper[i]);
                         l.removeEventListener('click', this.listenWrapped[i]);
 
                         e.style.cursor = e.style.__cursor;
                     });
+                },
+                getWrapped() {
+                    const tag = this.settings.tag.wrapped;
+                    const attr = this.settings.attr.wrapped;
+
+                    return `${tag}[${attr}]`;
+                },
+                getWrapper() {
+                    const tag = this.settings.tag.wrapper;
+                    const attr = this.settings.attr.wrapper;
+
+                    return `${tag}[${attr}]`;
+                },
+                getWrappers() {
+                    const wrapped = document.querySelectorAll(this.getWrapped());
+                    const wrappers = Array.from(wrapped)
+                        .map(e => e.closest(this.getWrapper()))
+                        .filter(e => !!e);
+
+                    return wrappers;
                 },
             };
 
