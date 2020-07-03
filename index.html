@@ -38,7 +38,7 @@
         background-color: #DDFFCE;
     }
 
-    div#location {
+    div#notice {
         position: absolute;
         top: 10px;
         height: 16px;
@@ -63,7 +63,7 @@
 </head>
 
 <body>
-    <div id="location"></div>
+    <div id="notice"></div>
     <br>
     <div w-rapper id="divUp">
         <span>
@@ -84,18 +84,20 @@
         $linkWrap.set.attr.wrapped = 'w-rapped';
         $linkWrap.set.attr.wrapper = 'w-rapper';
 
+        notice = document.getElementById('notice');
+
         /* enable $linkWrap */
         $linkWrap.init();
 
         /* disable $linkWrap in ten seconds */
         setTimeout(() => {
             $linkWrap.clear();
+            notice.innerHTML = '$linkWrap was disabled.';
+
         }, 10 * 1000);
 
-        const note = document.getElementById('location');
-
         window.addEventListener('popstate', () => {
-            note.innerHTML = window.location.href;
+            notice.innerHTML = location.href;
         });
     </script>
 </body>
