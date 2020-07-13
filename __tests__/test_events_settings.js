@@ -55,8 +55,6 @@ test('navigate up by mouseup on wrapper', done => {
 
     $linkWrap.init();
 
-    const elWrapped = document.getElementById('down');
-
     document.getElementById('Down').dispatchEvent(new Event('mouseup'));
 
     setTimeout(() => {
