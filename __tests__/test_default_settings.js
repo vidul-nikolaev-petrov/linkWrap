@@ -29,7 +29,7 @@ test('navigate up from any wrapper', done => {
     document.getElementById('anyDown').click();
 
     setTimeout(() => {
-        expect(window.location.href).toMatch(/up$/)
+        expect(window.location.href).toMatch(/up$/);
         done();
     });
 });

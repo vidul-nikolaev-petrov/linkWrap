@@ -37,7 +37,7 @@ test('disable link wrappers', done => {
     document.getElementById('divDown').click();
 
     setTimeout(() => {
-        expect(window.location.href).toMatch(/down$/)
+        expect(window.location.href).toMatch(/down$/);
         done();
     });
 });

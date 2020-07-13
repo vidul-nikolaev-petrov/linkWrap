@@ -29,7 +29,7 @@ test('navigate down (custom settings)', done => {
     document.getElementById('divUp').click();
 
     setTimeout(() => {
-        expect(window.location.href).toMatch(/down$/)
+        expect(window.location.href).toMatch(/down$/);
         done();
     });
 });
@@ -39,7 +39,7 @@ test('navigate up (custom settings)', done => {
     document.getElementById('divDown').click();
 
     setTimeout(() => {
-        expect(window.location.href).toMatch(/up$/)
+        expect(window.location.href).toMatch(/up$/);
         done();
     });
 });

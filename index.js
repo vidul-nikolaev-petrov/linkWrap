@@ -19,6 +19,10 @@
                 wrapper: '*',
             },
             cursor: 'pointer',
+            event: {
+                wrapped: 'click',
+                wrapper: 'click',
+            },
         };
 
         return _linkWrap();
@@ -32,15 +36,17 @@
                 },
                 init() {
                     const wrappers = this.getWrappers();
+                    const event_wrapped = this.settings.event.wrapped;
+                    const event_wrapper = this.settings.event.wrapper;
 
                     wrappers.forEach((e, i) => {
                         const l = e.querySelector(this.getWrapped());
 
                         this.listenWrapped[i] = e => e.stopPropagation();
-                        this.listenWrapper[i] = () => l.click();
+                        this.listenWrapper[i] = () => l[event_wrapped]();
 
-                        l.addEventListener('click', this.listenWrapped[i]);
-                        e.addEventListener('click', this.listenWrapper[i]);
+                        l.addEventListener(event_wrapped, this.listenWrapped[i]);
+                        e.addEventListener(event_wrapper, this.listenWrapper[i]);
 
                         e.style.__cursor = e.style.cursor;
                         e.style.cursor = l.style.cursor || this.settings.cursor;
@@ -48,12 +54,14 @@
                 },
                 clear() {
                     const wrappers = this.getWrappers();
+                    const event_wrapped = this.settings.event.wrapped;
+                    const event_wrapper = this.settings.event.wrapper;
 
                     wrappers.forEach((e, i) => {
                         const l = e.querySelector(this.getWrapped());
 
-                        e.removeEventListener('click', this.listenWrapper[i]);
-                        l.removeEventListener('click', this.listenWrapped[i]);
+                        e.removeEventListener(event_wrapper, this.listenWrapper[i]);
+                        l.removeEventListener(event_wrapped, this.listenWrapped[i]);
 
                         e.style.cursor = e.style.__cursor;
                     });
@@ -80,7 +88,7 @@
                 },
             };
 
-            ['attr', 'tag'].forEach(e => {
+            ['attr', 'tag', 'event'].forEach(e => {
                 main.set[e] = {
                     set wrapped(val) {
                         main.settings[e].wrapped = val;

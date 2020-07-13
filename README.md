@@ -14,6 +14,8 @@ $linkWrap.set.attr.wrapped = 'w-rapped'; // defaults to 'wrapped'
 $linkWrap.set.attr.wrapper = 'w-rapper'; // defaults to 'wrapper'
 $linkWrap.set.tag.wrapped = 'a';         // defaults to 'a'
 $linkWrap.set.tag.wrapper = 'div';       // defaults to '*' (all tags)
+$linkWrap.set.event.wrapped = 'click';   // defaults to 'click'
+$linkWrap.set.event.wrapper = 'click';   // defaults to 'click'
 ```
 More explanatory examples [here](https://github.com/vidul-nikolaev-petrov/linkWrap/tree/master/__tests__).
 

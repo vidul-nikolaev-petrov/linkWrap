@@ -33,7 +33,7 @@ test('navigate up from div', done => {
     document.getElementById('divDown').click();
 
     setTimeout(() => {
-        expect(window.location.href).toMatch(/up$/)
+        expect(window.location.href).toMatch(/up$/);
         done();
     });
 });

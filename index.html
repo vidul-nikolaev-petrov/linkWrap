@@ -83,6 +83,8 @@
     <script type="text/javascript">
         $linkWrap.set.attr.wrapped = 'w-rapped';
         $linkWrap.set.attr.wrapper = 'w-rapper';
+        $linkWrap.set.event.wrapped = 'click';
+        $linkWrap.set.event.wrapper = 'click';
 
         notice = document.getElementById('notice');
 
@@ -93,7 +95,6 @@
         setTimeout(() => {
             $linkWrap.clear();
             notice.innerHTML = '$linkWrap was disabled.';
-
         }, 10 * 1000);
 
         window.addEventListener('popstate', () => {
