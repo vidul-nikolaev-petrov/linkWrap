@@ -44,7 +44,7 @@ test('navigate up (custom settings)', done => {
     });
 });
 
-test('assert default cursor styling', done => {
+test('assert default cursor styling', () => {
     const elUp = document.getElementById('divUp');
     const elDown = document.getElementById('divDown');
     const cursor = $linkWrap.settings.cursor;
@@ -52,15 +52,13 @@ test('assert default cursor styling', done => {
     expect(elUp.style.cursor).toEqual(cursor);
     expect(elDown.style.cursor).toEqual(cursor);
 
-    setTimeout(() => {
-        $linkWrap.clear();
-        expect(elUp.style.cursor).not.toEqual(cursor);
-        expect(elDown.style.cursor).not.toEqual(cursor);
-        done();
-    });
+    $linkWrap.clear();
+
+    expect(elUp.style.cursor).not.toEqual(cursor);
+    expect(elDown.style.cursor).not.toEqual(cursor);
 });
 
-test('assert custom cursor styling', done => {
+test('assert custom cursor styling', () => {
     const elWrapped = document.getElementById('aUp');
     const elWrapper = document.getElementById('divUp');
     const cursor = 'crosshair';
@@ -71,9 +69,7 @@ test('assert custom cursor styling', done => {
 
     expect(elWrapper.style.cursor).toEqual(cursor);
 
-    setTimeout(() => {
-        $linkWrap.clear();
-        expect(elWrapper.style.cursor).not.toEqual(cursor);
-        done();
-    });
+    $linkWrap.clear();
+
+    expect(elWrapper.style.cursor).not.toEqual(cursor);
 });
