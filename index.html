@@ -65,31 +65,42 @@
 <body>
     <div id="notice"></div>
     <br>
-    <div w-rapper id="divUp">
+    <div div-rapper id="divUp">
         <span>
-            <a name="up"></a>
-            <a href="#down" w-rapped>local link #down</a>
+            <a name="div-up"></a>
+            <a href="#div-down" div-rapped>local link #down</a>
         </span>
     </div>
-    <p w-rapper>
-        <a href="http://google.com" w-rapped>link to google</a>
+    <p p-rapper>
+        <a href="http://google.com" p-rapped>link to google</a>
     </p>
-    <div w-rapper id="divDown">
+    <div div-rapper id="divDown">
         <span>
-            <a name="down"></a>
-            <a href="#up" w-rapped>local link #up</a>
+            <a name="div-down"></a>
+            <a href="#div-up" div-rapped>local link #up</a>
         </span>
     </div>
     <script type="text/javascript">
-        $linkWrap.set.attr.wrapped = 'w-rapped';
-        $linkWrap.set.attr.wrapper = 'w-rapper';
+        $linkWrap.set.attr.wrapped = 'div-rapped';
+        $linkWrap.set.attr.wrapper = 'div-rapper';
+        $linkWrap.set.tag.wrapped = 'a';
+        $linkWrap.set.tag.wrapper = 'div';
         $linkWrap.set.event.wrapped = 'click';
         $linkWrap.set.event.wrapper = 'click';
+
+        const linkWrap = $linkWrap.clone();
+        linkWrap.set.attr.wrapped = 'p-rapped';
+        linkWrap.set.attr.wrapper = 'p-rapper';
+        linkWrap.set.tag.wrapped = 'a';
+        linkWrap.set.tag.wrapper = 'p';
 
         notice = document.getElementById('notice');
 
         /* enable $linkWrap */
         $linkWrap.init();
+
+        /* enable another $linkWrap */
+        linkWrap.init();
 
         /* disable $linkWrap in ten seconds */
         setTimeout(() => {
