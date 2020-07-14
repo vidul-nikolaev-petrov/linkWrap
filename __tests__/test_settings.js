@@ -7,13 +7,13 @@ document.body.innerHTML = `
     <div id="divUp" container>
         <span>
             <a name="up"></a>
-            <a href="#down" wrappee>go down</a>
+            <a href="#down" id="aUp" wrappee>go down</a>
         </span>
     </div>
     <div id="divDown" container>
         <span>
             <a name="down"></a>
-            <a href="#up" wrappee>go up</a>
+            <a href="#up" id="aDown" wrappee>go up</a>
         </span>
     </div>
 `;
@@ -40,6 +40,40 @@ test('navigate up (custom settings)', done => {
 
     setTimeout(() => {
         expect(window.location.href).toMatch(/up$/);
+        done();
+    });
+});
+
+test('assert default cursor styling', done => {
+    const elUp = document.getElementById('divUp');
+    const elDown = document.getElementById('divDown');
+    const cursor = $linkWrap.settings.cursor;
+
+    expect(elUp.style.cursor).toEqual(cursor);
+    expect(elDown.style.cursor).toEqual(cursor);
+
+    setTimeout(() => {
+        $linkWrap.clear();
+        expect(elUp.style.cursor).not.toEqual(cursor);
+        expect(elDown.style.cursor).not.toEqual(cursor);
+        done();
+    });
+});
+
+test('assert custom cursor styling', done => {
+    const elWrapped = document.getElementById('aUp');
+    const elWrapper = document.getElementById('divUp');
+    const cursor = 'crosshair';
+
+    elWrapped.style.cursor = cursor;
+
+    $linkWrap.init();
+
+    expect(elWrapper.style.cursor).toEqual(cursor);
+
+    setTimeout(() => {
+        $linkWrap.clear();
+        expect(elWrapper.style.cursor).not.toEqual(cursor);
         done();
     });
 });

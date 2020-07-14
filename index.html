@@ -104,8 +104,8 @@
 
         /* disable $linkWrap in ten seconds */
         setTimeout(() => {
-            $linkWrap.clear();
-            notice.innerHTML = '$linkWrap was disabled.';
+            linkWrap.clear();
+            notice.innerHTML = 'linkWrap to google was disabled.';
         }, 10 * 1000);
 
         window.addEventListener('popstate', () => {

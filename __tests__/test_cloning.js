@@ -37,7 +37,12 @@ linkWrap.set.tag.wrapper = 'p';
 $linkWrap.init();
 linkWrap.init();
 
-test('assert correct settings', () => {
+test('assert correct attributes\' settings', () => {
+    expect($linkWrap.settings.attr.wrapper).toEqual('div-wrapper');
+    expect(linkWrap.settings.attr.wrapper).toEqual('p-wrapper');
+});
+
+test('assert correct tags\' settings', () => {
     expect($linkWrap.settings.tag.wrapper).toEqual('div');
     expect(linkWrap.settings.tag.wrapper).toEqual('p');
 });
